@@ -1,0 +1,197 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* ============================
+// $FONT STYLES
+// Define our Font Elements/Classes.
+// We are able to utilise semantic H1-H6 but also override the presentation using the class convention
+*/
+/* ============================
+//  Usage:
+//
+// @param {*} elements - expects an element tag. recommended h1 - h6
+// @param {*} classes - expects desired class name
+// @param {*} font-size - expects a base font-size with option to add different sizes at different media queries
+
+// Usage:
+// <h1 class="t-font-beta"></h1>
+*/
+:root {
+  --scale-micro: clamp(0.58rem, -0.07vw + 0.6rem, 0.53rem);
+  --scale-milli: clamp(0.69rem, 0.02vw + 0.69rem, 0.71rem);
+  --scale-centi: clamp(0.83rem, 0.16vw + 0.8rem, 0.94rem);
+  --scale-zeta: clamp(1rem, 0.38vw + 0.91rem, 1.25rem);
+  --scale-epsilon: clamp(1.2rem, 0.69vw + 1.04rem, 1.66rem);
+  --scale-delta: clamp(1.44rem, 1.16vw + 1.17rem, 2.21rem);
+  --scale-gamma: clamp(1.73rem, 1.82vw + 1.3rem, 2.94rem);
+  --scale-beta: clamp(2.07rem, 2.76vw + 1.43rem, 3.91rem);
+  --scale-alpha: clamp(2.49rem, 4.08vw + 1.53rem, 5.2rem);
+  --scale-omega: clamp(2.99rem, 5.91vw + 1.6rem, 6.92rem);
+  --scale-kilo: clamp(3.58rem, 8.44vw + 1.6rem, 9.2rem);
+  --scale-mega: clamp(4.3rem, 11.93vw + 1.5rem, 12.24rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*=t-font] {
+  margin: 0 0 var(--scale-zeta);
+  font-style: normal;
+  text-transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.t-font-primary {
+  font-family: Roboto, helvetica, arial, sans-serif;
+}
+.t-font-secondary {
+  font-family: Roboto Condensed, helvetica, arial, sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: var(--scale-alpha);
+}
+
+.t-font-alpha {
+  font-size: var(--scale-alpha);
+}
+
+h2 {
+  font-size: var(--scale-beta);
+}
+
+.t-font-beta {
+  font-size: var(--scale-beta);
+}
+
+h3 {
+  font-size: var(--scale-gamma);
+}
+
+.t-font-gamma {
+  font-size: var(--scale-gamma);
+}
+
+h4 {
+  font-size: var(--scale-delta);
+}
+
+.t-font-delta {
+  font-size: var(--scale-delta);
+}
+
+h5 {
+  font-size: var(--scale-epsilon);
+}
+
+.t-font-epsilon {
+  font-size: var(--scale-epsilon);
+}
+
+h6 {
+  font-size: var(--scale-zeta);
+}
+
+.t-font-zeta {
+  font-size: var(--scale-zeta);
+}
+
+.t-font-centi {
+  font-size: var(--scale-centi);
+}
+
+.t-font-milli {
+  font-size: var(--scale-milli);
+}
+
+.t-font-kilo {
+  font-size: var(--scale-kilo);
+}
+
+/* =============================================================================
+   Primary styles
+   ========================================================================== */
+/*
+  Contents
+  --------
+	0 	$ELEMENTS
+	2 	$OBJECTS
+	3 	$COMPONENTS
+	4	$LAYOUT
+	5 	$UTILITIES
+	6 	$STYLEGUIDE
+*/
+/* ============================
+// $ELEMENTS
+// Single HTML element selectors without classes
+*/
+/* ============================
+// $OBJECTS
+// Classes for page structure typically following the OOCSS methodology
+// The first layer in which we find class-level specificity
+*/
+/* ============================
+// $TYPOGRAPHY
+// Classes for the display and control of your typography.
+// These elements sit loosely between objects and components and in turn can be overridden on a piece of UI
+*/
+/* ============================
+//	$COMPONENTS
+//  Classes for styling any & all UI elements (often combined with the structure of object classes)
+//  Keep to DRY principles  ( [D]ont [R]epeat [Y]ourself )
+*/
+/* ============================
+// $UTILITIES
+// utilities classes in accordance with DRY mentality.
+// Eliminates the need to create specific classes to perform simple tasks
+// NOTE: Use sparingly
+*/
+
+/*# sourceMappingURL=main.css.map */

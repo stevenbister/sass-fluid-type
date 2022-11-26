@@ -1,0 +1,152 @@
+@use "sass:list";
+@use "../settings" as *;
+@use "../tools/functions/get" as *;
+@use "../tools/fluid-scale" as *;
+
+/* ============================
+// $FONT STYLES
+// Define our Font Elements/Classes.
+// We are able to utilise semantic H1-H6 but also override the presentation using the class convention
+*/
+
+/* ============================
+//  Usage:
+//
+// @param {*} elements - expects an element tag. recommended h1 - h6
+// @param {*} classes - expects desired class name
+// @param {*} font-size - expects a base font-size with option to add different sizes at different media queries
+
+// Usage:
+// <h1 class="t-font-beta"></h1>
+*/
+
+$font-sizes: (
+    (
+        elements: (
+            h1
+        ),
+        classes: (
+            "alpha"
+        )
+    ),
+    (
+        elements: (
+            h2
+        ),
+        classes: (
+            "beta"
+        )
+    ),
+    (
+        elements: (
+            h3
+        ),
+        classes: (
+            "gamma"
+        )
+    ),
+    (
+        elements: (
+            h4
+        ),
+        classes: (
+            "delta"
+        )
+    ),
+    (
+        elements: (
+            h5
+        ),
+        classes: (
+            "epsilon"
+        )
+    ),
+    (
+        elements: (
+            h6
+        ),
+        classes: (
+            "zeta"
+        )
+    ),
+    (
+        elements: (),
+        classes: (
+            "centi"
+        )
+    ),
+    (
+        elements: (),
+        classes: (
+            "milli"
+        )
+    ),
+    (
+        elements: (),
+        classes: (
+            "kilo"
+        )
+    )
+);
+$font-families: (
+    "primary": $font-primary,
+    "secondary": $font-secondary
+);
+
+:root {
+    @include fluid-scale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*="t-font"] {
+    margin: 0 0 var(--scale-zeta);
+    font-style: normal;
+    text-transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $weight-bold;
+}
+
+// Font Family
+.t-font {
+    @each $name, $font-family in $font-families {
+        &-#{$name} {
+            font-family: #{$font-family};
+
+            @if $name == "secondary" {
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+// Font Sizes
+@each $rule in $font-sizes {
+    $elements: get('elements', $rule);
+    $classes: get('classes', $rule);
+
+    @each $element in $elements {
+        @each $class in $classes {
+            #{$element} {
+                font-size: var(--scale-#{$class});
+            }
+        }
+    }
+
+    @each $class in $classes {
+        .t-font-#{$class} {
+            font-size: var(--scale-#{$class});
+        }
+    }
+}

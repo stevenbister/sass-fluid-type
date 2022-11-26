@@ -1,0 +1,50 @@
+$colors: (
+    default: (
+        base: #000000,
+        light: #ffffff,
+        dark: #000000,
+    ),
+);
+$fluid-scale: (
+    base-font-size: 16,
+    steps: (
+        micro,
+        milli,
+        centi,
+        zeta,
+        epsilon,
+        delta,
+        gamma,
+        beta,
+        alpha,
+        omega,
+        kilo,
+        mega
+    ),
+    min-viewport: (
+        width: 375,
+        font-size: 16,
+        scale: 1.2
+    ),
+    max-viewport: (
+        width: 1440,
+        font-size: 20,
+        scale: 1.33
+    )
+);
+$typography: (
+    font-primary: (
+        "Roboto",
+        helvetica,
+        arial,
+        sans-serif
+    ),
+    font-secondary: (
+        "Roboto Condensed",
+        helvetica,
+        arial,
+        sans-serif
+    ),
+    weight-reg: 400,
+    weight-bold: 700
+);

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Fluid type</title>
+</head>
+<body class="t-font-primary">
+    <style>
+        .text-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid hsl(0, 0%, 80%);
+            padding-right: 2rem;
+        }
+        .calculated-font {
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+    </style>
+    <div class="o-container o-container--medium">
+        <h1 class="alpha">Fluid Typescale Test!</h1>
+
+        <section>
+            <div class="text-wrapper">
+                <p class="t-font-mega">Scale mega</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-kilo">Scale kilo</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-omega">Scale omega</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-alpha">Scale alpha</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-beta">Scale beta</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-gamma">Scale gamma</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-delta">Scale delta</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-epsilon">Scale epsilon</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-zeta">Scale zeta</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-centi">Scale centi</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-milli">Scale milli</p>
+            </div>
+            <div class="text-wrapper">
+                <p class="t-font-micro">Scale micro</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        (function () {
+            const container = document.querySelector(".o-container");
+            const wrappers = document.querySelectorAll(".text-wrapper");
+
+            for (const wrapper of [...wrappers]) {
+                wrapper.insertAdjacentHTML(
+                    "beforeend",
+                    `<span class="calculated-font"></span>`
+                );
+            }
+
+            const observer = new ResizeObserver((entries) => {
+                for (const wrapper of [...wrappers]) {
+                    const text = wrapper.firstElementChild;
+
+                    const fontSize = window.getComputedStyle(text).fontSize;
+
+                    const calculatedFont = wrapper.querySelector(".calculated-font");
+
+                    calculatedFont.innerHTML = fontSize;
+                }
+            });
+
+            observer.observe(container);
+        })();
+    </script>
+</body>
+</html>`
