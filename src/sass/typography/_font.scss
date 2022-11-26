@@ -1,7 +1,10 @@
 @use "sass:list";
+@use "sass:map";
+@use "../tokens" as *;
 @use "../settings" as *;
 @use "../tools/functions/get" as *;
 @use "../tools/fluid-scale" as *;
+@use "../tools/font-size" as *;
 
 /* ============================
 // $FONT STYLES
@@ -13,14 +16,39 @@
 //  Usage:
 //
 // @param {*} elements - expects an element tag. recommended h1 - h6
-// @param {*} classes - expects desired class name
-// @param {*} font-size - expects a base font-size with option to add different sizes at different media queries
+// @param {*} classes - expects desired class name, value matches values from the steps in our tokens file
+// @param {*} line-height - expects a line-height value
+// @param {*} vertial-spacing - expects desired vertical spacing, value matches values from the steps in our tokens file
 
 // Usage:
 // <h1 class="t-font-beta"></h1>
 */
 
 $font-sizes: (
+    (
+        elements: (),
+        classes: (
+            "mega"
+        ),
+        line-height: 1,
+        vertical-spacing: (
+            "beta"
+            )
+    ),
+    (
+        elements: (),
+        classes: (
+            "kilo"
+        ),
+        line-height: 1.1
+    ),
+    (
+        elements: (),
+        classes: (
+            "omega"
+        ),
+        line-height: 1.1
+    ),
     (
         elements: (
             h1
@@ -63,7 +91,8 @@ $font-sizes: (
     ),
     (
         elements: (
-            h6
+            body,
+            h6,
         ),
         classes: (
             "zeta"
@@ -84,13 +113,13 @@ $font-sizes: (
     (
         elements: (),
         classes: (
-            "kilo"
+            "micro"
         )
     )
+
 );
 $font-families: (
     "primary": $font-primary,
-    "secondary": $font-secondary
 );
 
 :root {
@@ -139,14 +168,30 @@ h6 {
     @each $element in $elements {
         @each $class in $classes {
             #{$element} {
-                font-size: var(--scale-#{$class});
+                @if map.has-key($rule, 'line-height') {
+                    @include font-size($class, get('line-height', $rule));
+                } @else {
+                    @include font-size($class);
+                }
+
+                @if map.has-key($rule, 'vertical-spacing') {
+                    margin-bottom: var(--scale-#{get('vertical-spacing', $rule)});
+                }
             }
         }
     }
 
     @each $class in $classes {
         .t-font-#{$class} {
-            font-size: var(--scale-#{$class});
+            @if map.has-key($rule, 'line-height') {
+                @include font-size($class, get('line-height', $rule));
+            } @else {
+                @include font-size($class);
+            }
+
+            @if map.has-key($rule, 'vertical-spacing') {
+                margin-bottom: var(--scale-#{get('vertical-spacing', $rule)});
+            }
         }
     }
 }

@@ -32,8 +32,8 @@
     // We'll need to express the slope using proper viewport units, which is done by multiplying the slope by 100 to get a percentage.
     $slope-vw: decimal-round($slope * 100, 2);
 
-    $min-rems: decimal-round(rem($min-px), 2);
-    $max-rems: decimal-round(rem($max-px), 2);
+    $min-rems: decimal-round(rem($min-px), 2, ceil);
+    $max-rems: decimal-round(rem($max-px), 2, ceil);
 
     @return clamp(#{$min-rems}, #{$slope-vw}vw + #{$y-intercept}, #{$max-rems});
 }

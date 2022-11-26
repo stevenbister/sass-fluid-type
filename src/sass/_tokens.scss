@@ -1,12 +1,14 @@
 $colors: (
     default: (
-        base: #000000,
-        light: #ffffff,
-        dark: #000000,
+        base: #fff,
+        light: #fff,
+        dark: #000,
     ),
 );
+// Tokenised values for the fluid scale: https://www.fluid-type-scale.com/calculate
 $fluid-scale: (
-    base-font-size: 16,
+    base-font-size: 16, // 16px = 1rem. This should match the default font size in the root. e.g. if you are the font-size: 62.5% then this should be 10.
+    base-index: zeta, // Set the step we want to use as the base for the scale
     steps: (
         micro,
         milli,
@@ -22,29 +24,24 @@ $fluid-scale: (
         mega
     ),
     min-viewport: (
-        width: 375,
-        font-size: 16,
-        scale: 1.2
+        width: 400,
+        font-size: 16, // "base font will go no lower than this value"
+        scale: 1.25
     ),
     max-viewport: (
-        width: 1440,
-        font-size: 20,
+        width: 1280,
+        font-size: 18, // "Base font will go no higher than this value"
         scale: 1.33
     )
 );
 $typography: (
     font-primary: (
-        "Roboto",
-        helvetica,
-        arial,
-        sans-serif
-    ),
-    font-secondary: (
-        "Roboto Condensed",
+        "Inter",
         helvetica,
         arial,
         sans-serif
     ),
     weight-reg: 400,
-    weight-bold: 700
+    weight-bold: 600,
+    line-height: 1.2,
 );
